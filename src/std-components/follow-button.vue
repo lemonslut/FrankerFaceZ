@@ -48,8 +48,8 @@ export default {
 	props: [
 		'channel',
 		'initial',
-		'initial-notif',
-		'show-notif'
+		'initialNotif',
+		'showNotif'
 	],
 
 	data() {

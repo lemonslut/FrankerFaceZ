@@ -145,13 +145,13 @@
 			<ManageFFZ
 				v-if="active_tab === 'manage' && ffzEmote"
 				:emote="ffzEmote"
-				:getFFZ="getFFZ"
+				:get-f-f-z="getFFZ"
 				:no-header="true"
 			/>
 		</keep-alive>
 		<div
-			class="tw-c-background-base tw-pd-05"
 			v-if="active_tab === 'urls'"
+			class="tw-c-background-base tw-pd-05"
 		>
 			<table v-if="embed && embed.urls && embed.urls.length">
 				<tbody
@@ -159,7 +159,9 @@
 					:key="idx"
 				>
 					<tr>
-						<td class="tw-c-text-alt-2">{{ tNumber(idx + 1) }}.</td>
+						<td class="tw-c-text-alt-2">
+							{{ tNumber(idx + 1) }}.
+						</td>
 						<td class="tw-pd-x-05 tw-word-break-all">
 							<a
 								:data-url="url.url"
@@ -180,8 +182,8 @@
 								class="ffz-pill"
 							>{{ t('link-card.shortened', 'shortened') }}</span>
 							<span
-								v-if="url.flags"
 								v-for="flag in url.flags"
+								v-if="url.flags"
 								class="ffz-pill ffz-pill--live"
 							>{{ flag }}</span>
 						</td>
@@ -211,9 +213,9 @@ export default {
 
 	props: [
 		'url', 'data',
-		'pos_x', 'pos_y',
+		'posX', 'posY',
 		'getZ', 'getFFZ',
-		'use_dest'
+		'useDest'
 	],
 
 	data() {
@@ -320,7 +322,7 @@ export default {
 		},
 
 		targetUrl() {
-			const urls = this.use_dest ? this.embed?.urls : null;
+			const urls = this.useDest ? this.embed?.urls : null;
 			if ( Array.isArray(urls) )
 				for(const url of urls) {
 					if ( ! url.shortened )
