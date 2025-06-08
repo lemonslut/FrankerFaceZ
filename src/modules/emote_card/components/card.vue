@@ -25,9 +25,9 @@
 						<h4
 							class="tw-inline tw-ellipsis"
 							:class="{'tw-italic': hasOriginalName}"
-							:title="emote ? emote.name : raw_emote.name"
+							:title="emote ? emote.name : rawEmote.name"
 						>
-							{{ emote ? emote.name : raw_emote.name }}
+							{{ emote ? emote.name : rawEmote.name }}
 						</h4>
 						<P
 							v-if="! loaded"
@@ -188,8 +188,8 @@
 			@close="close"
 		/>
 		<Modifiers
-			v-if="! reporting && raw_modifiers && raw_modifiers.length"
-			:raw_modifiers="raw_modifiers"
+			v-if="! reporting && rawModifiers && rawModifiers.length"
+			:rawModifiers="rawModifiers"
 			:get-f-f-z="getFFZ"
 		/>
 	</div>
@@ -211,10 +211,10 @@ export default {
 	},
 
 	props: [
-		'raw_emote', 'data',
-		'pos_x', 'pos_y',
+		'rawEmote', 'data',
+		'posX', 'posY',
 		'getZ', 'getFFZ', 'reportTwitchEmote',
-		'raw_modifiers'
+		'rawModifiers'
 	],
 
 	data() {
@@ -360,7 +360,7 @@ export default {
 				if ( this.reportTwitchEmote(this.emote.id, this.emote.channel_id) )
 					this.close();
 
-				
+
 			}
 		},
 
