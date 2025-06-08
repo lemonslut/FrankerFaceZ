@@ -19,7 +19,7 @@
 <script>
 
 export default {
-	props: ['act', 'process-color', 'tooltip', 'pad', 'renderers'],
+	props: ['act', 'processColor', 'tooltip', 'pad', 'renderers'],
 
 	computed: {
 		color() {
