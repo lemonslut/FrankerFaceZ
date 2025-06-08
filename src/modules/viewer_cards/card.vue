@@ -144,7 +144,7 @@ export default {
 		'loading-tab': LoadingTab
 	},
 
-	props: ['tabs', 'room', 'raw_user', 'pos_x', 'pos_y', 'data', 'ban_info', 'getZ', 'getFFZ'],
+	props: ['tabs', 'room', 'rawUser', 'posX', 'posY', 'data', 'banInfo', 'getZ', 'getFFZ'],
 
 	data() {
 		return {
@@ -168,14 +168,14 @@ export default {
 			if ( this.loaded )
 				return this.user.login;
 
-			return this.raw_user.login;
+			return this.rawUser.login;
 		},
 
 		displayName() {
 			if ( this.loaded )
 				return this.user.displayName;
 
-			return this.raw_user.displayName || this.raw_user.login;
+			return this.rawUser.displayName || this.rawUser.login;
 		},
 
 		subscription() {
@@ -219,7 +219,7 @@ export default {
 			this.errored = true;
 		});
 
-		this.ban_info.then(data => {
+		this.banInfo.then(data => {
 			this.ban = deep_copy(data?.data?.chatRoomBanStatus);
 
 		}).catch(err => {
