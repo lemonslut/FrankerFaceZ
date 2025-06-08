@@ -189,7 +189,7 @@
 		/>
 		<Modifiers
 			v-if="! reporting && rawModifiers && rawModifiers.length"
-			:rawModifiers="rawModifiers"
+			:raw-modifiers="rawModifiers"
 			:get-f-f-z="getFFZ"
 		/>
 	</div>
