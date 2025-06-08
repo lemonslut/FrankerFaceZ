@@ -101,7 +101,7 @@
 export default {
 
 	props: [
-		'raw_modifiers',
+		'rawModifiers',
 		'getFFZ'
 	],
 
@@ -122,7 +122,7 @@ export default {
 
 			const out = [];
 
-			for(const [set_id, emote_id] of this.raw_modifiers) {
+			for(const [set_id, emote_id] of this.rawModifiers) {
 				if ( set_id === 'info' ) {
 					out.push({
 						type: 'info',
