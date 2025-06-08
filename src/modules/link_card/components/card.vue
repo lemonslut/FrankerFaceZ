@@ -213,9 +213,9 @@ export default {
 
 	props: [
 		'url', 'data',
-		'pos_x', 'pos_y',
+		'posX', 'posY',
 		'getZ', 'getFFZ',
-		'use_dest'
+		'useDest'
 	],
 
 	data() {
@@ -322,7 +322,7 @@ export default {
 		},
 
 		targetUrl() {
-			const urls = this.use_dest ? this.embed?.urls : null;
+			const urls = this.useDest ? this.embed?.urls : null;
 			if ( Array.isArray(urls) )
 				for(const url of urls) {
 					if ( ! url.shortened )
