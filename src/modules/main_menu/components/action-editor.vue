@@ -81,8 +81,8 @@
 					/>
 
 					<component
-						:is="extra_appearance"
-						v-if="extra_appearance"
+						:is="extraAppearance"
+						v-if="extraAppearance"
 						v-model="edit_data.appearance"
 					/>
 				</section>
@@ -112,14 +112,14 @@
 						</select>
 					</div>
 
-					<div v-if="mod_icons" class="tw-flex tw-align-items-center">
-						<label for="vis_mod_icons">
+					<div v-if="modIcons" class="tw-flex tw-align-items-center">
+						<label for="vis_modIcons">
 							{{ t('setting.actions.edit-visible.mod-icons', 'Mod Icons') }}
 						</label>
 
 						<select
-							id="vis_mod_icons"
-							v-model="edit_data.display.mod_icons"
+							id="vis_modIcons"
+							v-model="edit_data.display.modIcons"
 							class="tw-border-radius-medium tw-font-size-6 tw-full-width ffz-select tw-pd-l-1 tw-pd-r-3 tw-pd-y-05 tw-mg-y-05"
 						>
 							<option :value="undefined" selected>
@@ -359,7 +359,7 @@
 									</label>
 								</div>
 
-								<div v-if="has_hover_modifier" class="tw-pd-r-1 ffz-checkbox">
+								<div v-if="has_hoverModifier" class="tw-pd-r-1 ffz-checkbox">
 									<input
 										:id="'key_hover$' + id"
 										ref="key_hover"
@@ -487,7 +487,7 @@ import {has, maybe_call, deep_copy} from 'utilities/object';
 let id = 0;
 
 export default {
-	props: ['vuectx', 'action', 'data', 'inline', 'mod_icons', 'extra_appearance', 'context', 'modifiers', 'hover_modifier'],
+	props: ['vuectx', 'action', 'data', 'inline', 'modIcons', 'extraAppearance', 'context', 'modifiers', 'hoverModifier'],
 
 	data() {
 		return {
@@ -527,8 +527,8 @@ export default {
 			return this.modifiers
 		},
 
-		has_hover_modifier() {
-			return this.hover_modifier !== false
+		has_hoverModifier() {
+			return this.hoverModifier !== false
 		},
 
 		fmts() {
@@ -686,11 +686,11 @@ export default {
 			else if ( disp.mod === false )
 				out.push(this.t('setting.actions.visible.unmod', 'when not moderator'));
 
-			if ( disp.mod_icons === true )
-				out.push(this.t('setting.actions.visible.mod_icons', 'when mod icons are shown'));
+			if ( disp.modIcons === true )
+				out.push(this.t('setting.actions.visible.modIcons', 'when mod icons are shown'));
 
-			else if ( disp.mod_icons === false )
-				out.push(this.t('setting.actions.visible.mod_icons_off', 'when mod icons are hidden'));
+			else if ( disp.modIcons === false )
+				out.push(this.t('setting.actions.visible.modIcons_off', 'when mod icons are hidden'));
 
 			if ( disp.staff === true )
 				out.push(this.t('setting.actions.visible.staff', 'when staff'));
@@ -749,7 +749,7 @@ export default {
 					}));
 			}
 
-			if ( this.has_hover_modifier && disp.hover )
+			if ( this.has_hoverModifier && disp.hover )
 				out.push(this.t('setting.actions.visible.hover', 'when hovering'));
 
 			if ( ! out.length )
@@ -787,7 +787,7 @@ export default {
 
 			this.edit_data.display.keys = i;
 
-			if ( this.has_hover_modifier )
+			if ( this.has_hoverModifier )
 				this.edit_data.display.hover = this.$refs.key_hover.checked;
 		},
 
